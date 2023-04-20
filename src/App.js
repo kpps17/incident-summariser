@@ -1,14 +1,23 @@
-import {TicketSummaryComponent} from "./Components/TicketSummaryComponent";
-import {UserChatComponent} from "./Components/UserChatComponent";
+import {TicketSummaryComponent} from "./Components/TicketSummaryComponent/TicketSummaryComponent";
+import {UserChatComponent} from "./Components/UserChatComponent/UserChatComponent";
+import './App.css'
 
 function App() {
   return (
     <div className="App">
-        <h1>
-            Hello from incident summariser
-        </h1>
-        <TicketSummaryComponent />
-        <UserChatComponent />
+        <div className="incident-summariser-header">
+            <h1>
+                Hello from incident summariser
+            </h1>
+        </div>
+        <div className="incident-summariser-required-component">
+            <div className="incident-summariser-ticket-summary-component">
+                <TicketSummaryComponent />
+            </div>
+            <div className="incident-summariser-ticket-user-chat-component">
+                <UserChatComponent />
+            </div>
+        </div>
     </div>
   );
 }

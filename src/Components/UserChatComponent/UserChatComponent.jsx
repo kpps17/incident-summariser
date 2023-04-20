@@ -1,3 +1,5 @@
+import './style.css'
+
 export function UserChatComponent() {
     return (
         <h2>
