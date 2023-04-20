@@ -1,4 +1,4 @@
-import {TicketDetailComponent} from "./Components/TicketSummaryComponent/TicketSummaryComponent";
+import {TicketDetailComponent} from "./Components/TicketDetailsComponent/TicketDetailsComponent";
 import {UserChatComponent} from "./Components/UserChatComponent/UserChatComponent";
 import './App.css'
 
