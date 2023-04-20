@@ -1,8 +1,8 @@
 import './style.css'
 
-export function TicketSummaryComponent() {
+export function TicketDetailComponent() {
     return (
-        <h2>Hello from TicketSummaryComponent</h2>
+        <h2>Hello from TicketDetailComponent</h2>
     )
 }
 

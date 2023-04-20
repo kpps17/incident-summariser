@@ -1,4 +1,4 @@
-import {TicketSummaryComponent} from "./Components/TicketSummaryComponent/TicketSummaryComponent";
+import {TicketDetailComponent} from "./Components/TicketSummaryComponent/TicketSummaryComponent";
 import {UserChatComponent} from "./Components/UserChatComponent/UserChatComponent";
 import './App.css'
 
@@ -12,7 +12,7 @@ function App() {
         </div>
         <div className="incident-summariser-required-component">
             <div className="incident-summariser-ticket-summary-component">
-                <TicketSummaryComponent />
+                <TicketDetailComponent />
             </div>
             <div className="incident-summariser-ticket-user-chat-component">
                 <UserChatComponent />
