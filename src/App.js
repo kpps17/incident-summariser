@@ -6,9 +6,9 @@ function App() {
   return (
     <div className="App">
         <div className="incident-summariser-header">
-            <h1>
+            <span>
                 Hello from incident summariser
-            </h1>
+            </span>
         </div>
         <div className="incident-summariser-required-component">
             <div className="incident-summariser-ticket-summary-component">
