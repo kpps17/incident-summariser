@@ -1,4 +1,7 @@
 .incident-summariser-ticket-user-chat-component {
-    /*border: 1px solid;*/
-    width: 70vw;
+    transform: translate3d(0, 0, 0);
+    box-shadow: 0 0 6px #ddd;
+    background-color: #fff;
+    border-radius: 8px;
+    width: 40%;
 }

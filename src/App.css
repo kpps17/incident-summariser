@@ -1,8 +1,18 @@
 .incident-summariser-required-component {
-    display: flex;
-    /*justify-content: space-around;*/
-    /*border: 1px solid;*/
-    height: 100vh;
+    justify-content: center;
+    display: inline-flex;
+    width: 100%;
+    height: 90%;
+    gap: 14px;
+}
+
+.App{
+    position: fixed;
+    z-index: 0;
+    top: 0px;
+    bottom: 0;
+    right: 0;
+    left: 0;
 }
 
 .App {

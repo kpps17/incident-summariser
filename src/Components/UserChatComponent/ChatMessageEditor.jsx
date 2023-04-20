@@ -2,6 +2,7 @@
 import DateTime from "./datetime.js";
 import "./ChatMessageEditor.css";
 import React from "react";
+import axios from "axios";
 
 /*
 * @description: Builds chat message editor view.
@@ -25,13 +26,14 @@ export default class ChatMessageEditor extends React.PureComponent {
     * @description: Returns this view as JSX format.
     * @return: JSXObject
     */
-	__send_message = () => {
-        // Removes message blank spaces.
-        this.input.current.value = this.input.current.value.trimLeft ().trimRight ();
-        // Sends the given message to another connected user.
-        if (this.input.current.value.length > 0) this.props.sendMessage (DateTime.get_datetime (), false, this.input.current.value);
-        // Clears input value.
+    handleMessageEnter = () =>{
+        let value = this.input.current.value.trim();
+        if (!value.length) return;
+        this.props.sendMessage (DateTime.get_datetime (), false, value);
         this.input.current.value = String ('');
+        axios.get('https://jsonplaceholder.typicode.com/todos/1').then(res=>{
+            this.props.sendMessage (DateTime.get_datetime (), true, res.data.title);
+        });
     }
 
     /*
@@ -42,7 +44,7 @@ export default class ChatMessageEditor extends React.PureComponent {
         {/* Message input field */}
         <div className = "msg-editor" title = "Write your message here.">
             {/* Message value */}
-            <input ref = {this.input} type = "text" placeholder = "Send a message..." onKeyDown = {e => {if (e.key === "Enter") this.__send_message ()}}/>
+            <input ref = {this.input} type = "text" placeholder = "Send a message..." onKeyDown = {e => {if (e.key === "Enter") this.handleMessageEnter ()}}/>
         </div>
         {/* Emoji icon container */}
         <div className = "emoji-icon" title = "Add an emoji expression.">
