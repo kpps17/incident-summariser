@@ -43,7 +43,7 @@ export default class ChatMessageEditor extends React.PureComponent {
         }
         restHelper(endpoint, payload)
             .then((res) => {
-                this.handleSendMessage(true, res.data.data)
+                this.handleSendMessage(true, res.data.response)
             })
     }
 

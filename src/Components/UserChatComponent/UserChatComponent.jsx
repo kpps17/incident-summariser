@@ -49,29 +49,9 @@ export default class UserChatComponent extends React.PureComponent {
                     profil: chatBot,
                     data: [
                         {
-                            datetime: "August 21, 2022 19:45",
+                            datetime: DateTime.get_datetime(),
                             messages: [
-                                {is_contact: true, text: "Hi"},
-                                {is_contact: true, text: "How are you ?"},
-                                {is_contact: false, text: "Good morning"},
-                                {is_contact: false, text: "I'm fine, thanks !"},
-                                {is_contact: true, text: "Super"},
-                                {is_contact: true, text: "Have you finish to do yours packs ?"},
-                                {is_contact: false, text: "Not again"},
-                                {is_contact: false, text: "I'm making that."},
-                                {is_contact: true, text: "Alright"}
-                            ]
-                        },
-                        {
-                            datetime: "August 22, 2022 06:11",
-                            messages: [
-                                {is_contact: true, text: "Hi"},
-                                {is_contact: true, text: "I'm waiting for you."},
-                                {is_contact: true, text: "Please, try to make that quickly."},
-                                {is_contact: false, text: "Good morning"},
-                                {is_contact: false, text: "Received message 5/5"},
-                                {is_contact: true, text: "Good"},
-                                {is_contact: false, text: "See you later"},
+                                {is_contact: true, text: "Hi, how can I help you today?"},
                             ]
                         }
                     ]
