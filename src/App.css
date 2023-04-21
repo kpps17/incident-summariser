@@ -7,9 +7,11 @@
     font-family: 'Open Sans', sans-serif;
     font-size: 3vw;
     padding-bottom: 15px;
-
-
 }
+.ticket-input-container-text-field {
+    padding-bottom: 15px;
+}
+
 .incident-summariser-required-component {
     justify-content: center;
     display: flex;

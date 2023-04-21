@@ -2,7 +2,7 @@ import {TicketDetailComponent} from "./Components/TicketDetailsComponent/TicketD
 import UserChatComponent from "./Components/UserChatComponent/UserChatComponent";
 import './App.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faBug } from '@fortawesome/free-solid-svg-icons'
 
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
     <div className="App">
         <div className="incident-summariser-header">
             <span>
-                Incident Insight
+                INCIDENT INSIGHT <FontAwesomeIcon icon={faBug} />!
             </span>
         </div>
         <div className="incident-summariser-required-component">
