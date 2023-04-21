@@ -1,26 +1,43 @@
+
+.incident-summariser-header {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 3vw;
+    padding-bottom: 15px;
+
+
+}
 .incident-summariser-required-component {
     justify-content: center;
-    display: inline-flex;
+    display: flex;
     width: 100%;
     height: 90%;
     gap: 14px;
+}
+.incident-summariser-ticket-summary-component {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .App{
     position: fixed;
     z-index: 0;
-    top: 0px;
-    bottom: 0;
+    top: 10px;
+    bottom: 10px;
     right: 0;
     left: 0;
-}
-
-.App {
     background-color: #f7f7f7;
-    padding: 0;
+    padding: 10px;
     margin: 0;
 }
 
 .incident-summariser-ticket-summary-component {
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
