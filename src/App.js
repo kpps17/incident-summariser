@@ -4,11 +4,18 @@ import {UserLoginComponent} from "./Components/UserLoginComponent/UserLoginCompo
 import './App.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBug } from '@fortawesome/free-solid-svg-icons'
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
+
+const sessionId = Math.random().toString(36).substring(2);
 
 function App() {
+
     let [alias, setAlias] = useState("");
+
+    useEffect(()=>{
+        sessionStorage.setItem('sessionId', sessionId)
+    },[])
 
   return (
     <div className="App">
@@ -23,7 +30,7 @@ function App() {
         </div>
         <div className="incident-summariser-required-component">
             <div className="incident-summariser-ticket-summary-component">
-                <TicketDetailComponent />
+                <TicketDetailComponent alias={alias} sessionId={sessionId}/>
             </div>
             <div className="incident-summariser-ticket-user-chat-component">
                 <UserChatComponent />

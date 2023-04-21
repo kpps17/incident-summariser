@@ -3,7 +3,8 @@ import {TicketInputComponent} from "./TicketInputComponent";
 import {TicketSummaryComponent} from "./TicketSummaryComponent";
 import {useState} from "react";
 
-export function TicketDetailComponent() {
+export function TicketDetailComponent(props) {
+    let {alias} = props
     let [ticketId, setTicketId] = useState("");
     let [ticketSummaryMessage, setTicketSummaryMessage] = useState("");
 

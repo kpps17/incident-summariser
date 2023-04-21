@@ -15,12 +15,12 @@ export function UserLoginComponent(props) {
 
     const handleContinue = () => {
         if (!isEmpty(alias)) {
-            handleClose();
+            setOpen(false);
         }
     }
 
     const handleClose = () => {
-        setOpen(false);
+        setOpen(true);
     };
 
     return (
