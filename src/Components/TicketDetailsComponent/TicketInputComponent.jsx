@@ -16,9 +16,8 @@ export function TicketInputComponent(props) {
         axios.get('https://api.github.com/repos/tannerlinsley/react-query')
             .then((res) => {
                 apiRes = res.data;
+                setTicketSummaryMessage(apiRes.id)
             });
-        console.log(apiRes)
-        setTicketSummaryMessage(apiRes.id)
     }
 
     return (

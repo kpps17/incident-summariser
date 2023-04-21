@@ -19,8 +19,8 @@ import './style.css'
 import lodash from "lodash";
 import DateTime from "./datetime";
 import ChatMessageEditor from "./ChatMessageEditor";
-import userProfile from '../../Assets/profil_1.jpeg'
-import Profil3 from '../../Assets/profil_3.jpg'
+import userProfile from '../../Assets/userAvatar.jpg'
+import chatBot from '../../Assets/amazonChatBot.jpg'
 /*
 * @description: Builds chat messages context view.
 * @type: UI
@@ -47,7 +47,7 @@ export default class UserChatComponent extends React.PureComponent {
                     label: "This message isn't...",
                     name: "Lumia Noella",
                     date: "9/3/2022",
-                    profil: Profil3,
+                    profil: chatBot,
                     data: [
                         {
                             datetime: "August 21, 2022 19:45",
