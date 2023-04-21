@@ -1,8 +1,6 @@
-
 import DateTime from "./datetime.js";
 import "./ChatMessageEditor.css";
 import React from "react";
-import axios from "axios";
 import restHelper from '../commons/Utils'
 
 /*
@@ -18,24 +16,24 @@ export default class ChatMessageEditor extends React.PureComponent {
     * @return: void
     */
 	constructor (props) {
-		// Calls the parent constructor.
-		super (props);
+        // Calls the parent constructor.
+        super(props);
         // Attributes.
-        this.input = React.createRef ();
+        this.input = React.createRef();
+        this.handleSendMessage = this.handleSendMessage.bind(this)
     }
 
     /*
     * @description: Returns this view as JSX format.
     * @return: JSXObject
     */
-    handleMessageEnter = (userId, sessionId, ticketId) =>{
+
+    handleMessageEnter = (userId, sessionId, ticketId) => {
         let value = this.input.current.value.trim();
         if (!value.length) return;
-        this.props.sendMessage (DateTime.get_datetime (), false, value);
-        this.input.current.value = String ('');
-        // axios.get('https://jsonplaceholder.typicode.com/todos/1').then(res=>{
-        //     this.props.sendMessage (DateTime.get_datetime (), true, res.data.title);
-        // });
+        this.handleSendMessage(false, value);
+        this.input.current.value = String('');
+
         const endpoint = 'http://localhost:3001/api/v1/chat/send'
         const payload = {
             userId: userId,
@@ -44,9 +42,13 @@ export default class ChatMessageEditor extends React.PureComponent {
             question: value
         }
         restHelper(endpoint, payload)
-            .then(function (res) {
-                this.props.sendMessage(DateTime.get_datetime (), true, res.response);
-        })
+            .then((res) => {
+                this.handleSendMessage(true, res.data.data)
+            })
+    }
+
+    handleSendMessage = (bool, value) => {
+        this.props.sendMessage(DateTime.get_datetime(), bool, value);
     }
 
     /*
