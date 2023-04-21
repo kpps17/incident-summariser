@@ -1,4 +1,3 @@
-
 /*
 * @organization: Console Art Cybernetic
 * @project: Tiktok Chat Simulation
@@ -124,7 +123,8 @@ export default class UserChatComponent extends React.PureComponent {
             <Chat chats = {this.state.chats[this.state.active_index].data} userProfil = {userProfile}
                          contactProfil = {this.state.chats[this.state.active_index].profil} ref = {this.chat_context}/>
             {/* Message editor */}
-            <ChatMessageEditor sendMessage = {this.sendMessage}/>
+            <ChatMessageEditor sendMessage={this.sendMessage} userId={this.props.alias} ticketId={this.props.ticketId}
+                               sessionId={this.props.sessionId}/>
         </div>
 }
 
@@ -169,9 +169,10 @@ class Chat extends React.PureComponent {
                 {/* Building all submitted message between the connected user and his contact */}
                 {item.messages.map ((elmt, pos) => (elmt.is_contact ?
                     // Left chat message data building.
-                    <LeftChat key = {pos} text = {elmt.text} top = {((pos > 0 && item.messages[(pos - 1)].is_contact) ? 0 : 15)}
-                              profil = {((pos > 0 && item.messages[(pos - 1)].is_contact) ? null : this.props.contactProfil)}
-                              bottom = {((pos < (item.messages.length - 1) && item.messages[(pos + 1)].is_contact) ? 5 : 15)}
+                    <LeftChat key={pos} text={elmt.text}
+                              top={((pos > 0 && item.messages[(pos - 1)].is_contact) ? 0 : 15)}
+                              profil={((pos > 0 && item.messages[(pos - 1)].is_contact) ? null : this.props.contactProfil)}
+                              bottom={((pos < (item.messages.length - 1) && item.messages[(pos + 1)].is_contact) ? 5 : 15)}
                     /> :
                     // Right chat message data building.
                     <RightChat key = {pos} text = {elmt.text} top = {((pos > 0 && !item.messages[(pos - 1)].is_contact) ? 0 : 15)}

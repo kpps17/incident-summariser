@@ -1,17 +1,22 @@
 import './style.css'
 import {TicketInputComponent} from "./TicketInputComponent";
 import {TicketSummaryComponent} from "./TicketSummaryComponent";
-import {useState} from "react";
 
 export function TicketDetailComponent(props) {
-    let {alias} = props
-    let [ticketId, setTicketId] = useState("");
-    let [ticketSummaryMessage, setTicketSummaryMessage] = useState("");
+    let {alias, sessionId, ticketId, setTicketId, ticketSummaryMessage, setTicketSummaryMessage} = props
 
     return (
         <div>
-            <TicketInputComponent ticketId = {ticketId} setTicketId={setTicketId} setTicketSummaryMessage={setTicketSummaryMessage}/>
-            <TicketSummaryComponent ticketSummaryMessage={ticketSummaryMessage}/>
+            <TicketInputComponent
+                ticketId={ticketId}
+                setTicketId={setTicketId}
+                setTicketSummaryMessage={setTicketSummaryMessage}
+                alias={alias}
+                sessionId={sessionId}
+            />
+            <TicketSummaryComponent
+                ticketSummaryMessage={ticketSummaryMessage}
+            />
         </div>
     )
 }

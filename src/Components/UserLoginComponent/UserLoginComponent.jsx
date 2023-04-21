@@ -1,8 +1,11 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import {v4 as uuidv4} from 'uuid';
 import {Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField} from "@mui/material";
 
+const sessionIdValue = uuidv4();
+
 export function UserLoginComponent(props) {
-    let {alias, setAlias} = props;
+    let {alias, setAlias, sessionId, isAliasInLocalStorage, setSessionId} = props;
     const [open, setOpen] = useState(true);
 
     const isEmpty = (str) =>  {
@@ -14,7 +17,11 @@ export function UserLoginComponent(props) {
     };
 
     const handleContinue = () => {
+        console.log(sessionIdValue, alias)
         if (!isEmpty(alias)) {
+            setSessionId(sessionIdValue)
+            localStorage.setItem('alias', alias);
+            localStorage.setItem('sessionId', sessionIdValue)
             setOpen(false);
         }
     }
@@ -39,7 +46,7 @@ export function UserLoginComponent(props) {
                         type="text"
                         fullWidth
                         variant="standard"
-                        onChange={e => setAlias(e.target.value.trim())}
+                        onChange={e => setAlias(e.target.value)}
                     />
                 </DialogContent>
                 <DialogActions>

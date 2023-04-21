@@ -1,9 +1,9 @@
 import {Button, TextField} from "@mui/material";
 import axios from "axios";
-import {useState} from "react";
+import restHelper from '../commons/Utils'
 
 export function TicketInputComponent(props) {
-    let {ticketId, setTicketId, setTicketSummaryMessage} = props;
+    let {ticketId, setTicketId, setTicketSummaryMessage, alias, sessionId} = props;
 
     let apiRes = "";
     const handleEnableDisableButton = (str) => {
@@ -12,13 +12,36 @@ export function TicketInputComponent(props) {
     }
 
     const handleTicketIdInput = () => {
-        // some API call and will set the message to be shown in the summary component
-        axios.get('https://api.github.com/repos/tannerlinsley/react-query')
-            .then((res) => {
-                apiRes = res.data;
-                setTicketSummaryMessage(apiRes.id)
+        // const options = {
+        //     method: 'post',
+        //     url: 'http://localhost:3001/api/v1/chat/create',
+        //     data: {
+        //         userId: alias,
+        //         sessionId: sessionId,
+        //         ticketId: ticketId
+        //     }
+        // };
+        //
+        // axios.request(options)
+        //     .then(function (res) {
+        //         console.log(res);
+        //         setTicketSummaryMessage(res.data.response);
+        //     });
+
+        const payload = {
+            userId: alias,
+            sessionId: sessionId,
+            ticketId: ticketId
+        }
+
+        const endpoint = 'http://localhost:3001/api/v1/chat/create'
+
+        restHelper(endpoint, payload)
+            .then(function (res) {
+                console.log(res);
             });
     }
+
 
     return (
         <div className="ticket-input-container">
