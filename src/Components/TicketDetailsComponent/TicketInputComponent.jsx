@@ -35,7 +35,8 @@ export function TicketInputComponent(props) {
         <div className="ticket-input-container">
             <div className="ticket-input-container-text-field">
                 <TextField id="outlined-basic" label="Ticket-Id" variant="outlined"
-                           onChange={e => setTicketId(e.target.value)} size="small"/>
+                           onChange={e => setTicketId(e.target.value)} size="small" style={{width: "15vw"}}
+                />
             </div>
             <div className="ticket-input-container-button">
                 <Button variant="outlined" disabled={handleEnableDisableButton(ticketId)}
