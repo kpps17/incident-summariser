@@ -3,18 +3,8 @@ import "./ChatMessageEditor.css";
 import React from "react";
 import restHelper from '../commons/Utils'
 
-/*
-* @description: Builds chat message editor view.
-* @type: UI
-*/
 
 export default class ChatMessageEditor extends React.PureComponent {
-    /*
-    * @description: Builds view instance.
-    * @parameters:
-    *   -> Object props: Contains class properties.
-    * @return: void
-    */
 	constructor (props) {
         // Calls the parent constructor.
         super(props);
@@ -22,11 +12,6 @@ export default class ChatMessageEditor extends React.PureComponent {
         this.input = React.createRef();
         this.handleSendMessage = this.handleSendMessage.bind(this)
     }
-
-    /*
-    * @description: Returns this view as JSX format.
-    * @return: JSXObject
-    */
 
     handleMessageEnter = (userId, sessionId, ticketId) => {
         let value = this.input.current.value.trim();
@@ -51,10 +36,6 @@ export default class ChatMessageEditor extends React.PureComponent {
         this.props.sendMessage(DateTime.get_datetime(), bool, value);
     }
 
-    /*
-    * @description: Returns this view as JSX format.
-    * @return: JSXObject
-    */
     render() {
         const {userId, sessionId, ticketId} = this.props;
         return (
