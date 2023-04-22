@@ -4,7 +4,9 @@ import restHelper from '../commons/Utils'
 
 export function TicketInputComponent(props) {
     let {ticketId, setTicketId, setTicketSummaryMessage, alias, sessionId} = props;
-
+    const handleClick = () => {
+        props.handleFileTwoClick();
+    };
     let apiRes = "";
     const handleEnableDisableButton = (str) => {
         str = str.trim()
@@ -12,7 +14,7 @@ export function TicketInputComponent(props) {
     }
 
     const handleTicketIdInput = () => {
-
+        handleClick();
         const payload = {
             userId: alias,
             sessionId: sessionId,

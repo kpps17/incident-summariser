@@ -5,3 +5,10 @@
     height: 100%;
     width: 31%;
 }
+
+.ticket-summary-component-section {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 12vw;
+
+}

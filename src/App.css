@@ -8,8 +8,51 @@
     font-size: 3vw;
     padding-bottom: 15px;
 }
+.ticket-detail-component-header {
+    font-family: "SF Pro Display", sans-serif;
+    font-size: 1vw;
+    font-weight: bold;
+    margin-bottom: 3vw;
+    color: #333333;
+    text-align: justify;
+    text-transform: uppercase;
+    padding-left: 2vw;
+}
+.ticket-input-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-family: "SF Pro Display", sans-serif;
+    /*padding: 20px;*/
+    border-radius: 20px;
+}
+
+    .ticket-input-container-button {
+        background-color: #fff;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
 .ticket-input-container-text-field {
     padding-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .incident-summariser-required-component {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .incident-summariser-required-component {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .incident-summariser-required-component {
