@@ -12,21 +12,6 @@ export function TicketInputComponent(props) {
     }
 
     const handleTicketIdInput = () => {
-        // const options = {
-        //     method: 'post',
-        //     url: 'http://localhost:3001/api/v1/chat/create',
-        //     data: {
-        //         userId: alias,
-        //         sessionId: sessionId,
-        //         ticketId: ticketId
-        //     }
-        // };
-        //
-        // axios.request(options)
-        //     .then(function (res) {
-        //         console.log(res);
-        //         setTicketSummaryMessage(res.data.response);
-        //     });
 
         const payload = {
             userId: alias,
@@ -34,11 +19,12 @@ export function TicketInputComponent(props) {
             ticketId: ticketId
         }
 
-        const endpoint = 'http://localhost:3001/api/v1/chat/create'
+        const endpoint = 'http://localhost:3001/api/v1/chat/ticket/summary'
 
         restHelper(endpoint, payload)
             .then(function (res) {
-                console.log(res);
+                console.log(res.data.response);
+                setTicketSummaryMessage(res.data.response);
             });
     }
 

@@ -34,7 +34,7 @@ export default class ChatMessageEditor extends React.PureComponent {
         this.handleSendMessage(false, value);
         this.input.current.value = String('');
 
-        const endpoint = 'http://localhost:3001/api/v1/chat/send'
+        const endpoint = 'http://localhost:3001/api/v1/chat/ticket/send'
         const payload = {
             userId: userId,
             sessionId: sessionId,

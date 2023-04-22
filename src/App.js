@@ -14,7 +14,8 @@ function App() {
 
     let [alias, setAlias] = useState("");
     let [ticketId, setTicketId] = useState("");
-    let [ticketSummaryMessage, setTicketSummaryMessage] = useState("");
+    let [ticketSummaryMessage, setTicketSummaryMessage] = useState({
+    });
     let [sessionId, setSessionId] = useState("")
 
 
