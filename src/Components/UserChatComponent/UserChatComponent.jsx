@@ -8,6 +8,7 @@ import DateTime from "./datetime";
 import ChatMessageEditor from "./ChatMessageEditor";
 import userProfile from '../../Assets/userAvatar.jpg'
 import chatBot from '../../Assets/amazonChatBot.jpg'
+import {ticket} from "../../Assets/endpoints";
 
 
 
@@ -15,49 +16,31 @@ export default class UserChatComponent extends React.PureComponent {
     constructor (props) {
         super (props);
         this.chat_context = React.createRef ();
-        this.state = {
-            active_index: 0,
-            chats: [
-                {
-                    label: "This message isn't...",
-                    name: "Lumia Noella",
-                    date: "9/3/2022",
-                    profil: chatBot,
-                    data: [
-                        {
-                            datetime: DateTime.get_datetime(),
-                            messages: [
-                                {is_contact: true, text: "Hi, how can I help you today?"},
-                            ]
-                        }
-                    ]
-                }
-            ]
-        };
     }
 
     sendMessage = (datetime, is_contact, message) => {
-        let chats = lodash.cloneDeep (this.state.chats), today = (datetime.split (',')[0] + ", " + new Date ().getFullYear ());
+        let chats = lodash.cloneDeep (this.props.chats), today = (datetime.split (',')[0] + ", " + new Date ().getFullYear ());
         // Gets chat datetime index.
-        let index = chats[this.state.active_index].data.findLastIndex (item => {
+        let index = chats[this.props.activeIndex].data.findLastIndex (item => {
             // Returns the imposed constraint.
             return ((item.datetime.split (',')[0] + ", " + new Date ().getFullYear ()) === today);
         });
         // The given datetime is it defined ?
-        if (index > -1) chats[this.state.active_index].data[index].messages.push ({is_contact: is_contact, text: message});
+        if (index > -1) chats[this.props.activeIndex].data[index].messages.push ({is_contact: is_contact, text: message});
         // Adds the current message with the given datetime for today.
-        else chats[this.state.active_index].data.push ({datetime: DateTime.get_datetime (), messages: [{is_contact: is_contact, text: message}]});
+        else chats[this.props.activeIndex].data.push ({datetime: DateTime.get_datetime (), messages: [{is_contact: is_contact, text: message}]});
         // Updates the global state.
-        this.setState ({chats: chats});
+        // this.setState ({chats: chats});
+        this.props.setChats(chats)
         // Moves the scrollbar at the full bottom.
         setTimeout (() => this.chat_context.current.scroll_to_bottom (), 20);
     }
 
     render = () => <div className = "chat-workspace">
-            <Chat chats = {this.state.chats[this.state.active_index].data} userProfil = {userProfile}
-                         contactProfil = {this.state.chats[this.state.active_index].profil} ref = {this.chat_context}/>
-            <ChatMessageEditor sendMessage={this.sendMessage} userId={this.props.alias} ticketId={this.props.ticketId}
-                               sessionId={this.props.sessionId}/>
+            <Chat chats = {this.props.chats[this.props.activeIndex].data} userProfil = {userProfile}
+                         contactProfil = {this.props.chats[this.props.activeIndex].profil} ref = {this.chat_context}/>
+            <ChatMessageEditor sendMessage={this.sendMessage} userId={this.props.alias} ticketId={(this.props.pageId === ticket) ? this.props.ticketId : this.props.cti}
+                               sessionId={this.props.sessionId} pageId={this.props.pageId}/>
         </div>
 }
 

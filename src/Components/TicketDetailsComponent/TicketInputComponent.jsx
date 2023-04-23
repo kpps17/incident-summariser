@@ -1,9 +1,16 @@
 import {Button, TextField} from "@mui/material";
-import axios from "axios";
 import restHelper from '../commons/Utils'
+import {baseUrl, ticket} from "../../Assets/endpoints";
 
 export function TicketInputComponent(props) {
-    let {ticketId, setTicketId, setTicketSummaryMessage, alias, sessionId} = props;
+    let {
+        ticketId,
+        setTicketId,
+        setTicketSummaryMessage,
+        alias,
+        sessionId,
+        pageId,
+    } = props;
     const handleClick = () => {
         props.handleFileTwoClick();
     };
@@ -13,15 +20,17 @@ export function TicketInputComponent(props) {
         return (!str || str.length === 0);
     }
 
-    const handleTicketIdInput = () => {
+    const handleIdInput = () => {
         handleClick();
-        const payload = {
+        const payload = (pageId === ticket) ? {
             userId: alias,
             sessionId: sessionId,
             ticketId: ticketId
+        } : {
+            ctiId: ticketId
         }
 
-        const endpoint = 'http://localhost:3001/api/v1/chat/ticket/summary'
+        const endpoint = `${baseUrl}/chat/${pageId}/summary`
 
         restHelper(endpoint, payload)
             .then(function (res) {
@@ -34,13 +43,13 @@ export function TicketInputComponent(props) {
     return (
         <div className="ticket-input-container">
             <div className="ticket-input-container-text-field">
-                <TextField id="outlined-basic" label="Ticket-Id" variant="outlined"
+                <TextField id="outlined-basic" label={`enter-${pageId}`} variant="outlined"
                            onChange={e => setTicketId(e.target.value)} size="small" style={{width: "15vw"}}
                 />
             </div>
             <div className="ticket-input-container-button">
                 <Button variant="outlined" disabled={handleEnableDisableButton(ticketId)}
-                        onClick={handleTicketIdInput}>Find</Button>
+                        onClick={handleIdInput}>Find</Button>
             </div>
         </div>
     )

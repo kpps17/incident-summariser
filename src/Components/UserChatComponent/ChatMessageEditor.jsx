@@ -2,6 +2,7 @@ import DateTime from "./datetime.js";
 import "./ChatMessageEditor.css";
 import React from "react";
 import restHelper from '../commons/Utils'
+import {baseUrl, ticket} from "../../Assets/endpoints";
 
 
 export default class ChatMessageEditor extends React.PureComponent {
@@ -13,17 +14,22 @@ export default class ChatMessageEditor extends React.PureComponent {
         this.handleSendMessage = this.handleSendMessage.bind(this)
     }
 
-    handleMessageEnter = (userId, sessionId, ticketId) => {
+    handleMessageEnter = (userId, sessionId, ticketId, pageId) => {
         let value = this.input.current.value.trim();
         if (!value.length) return;
         this.handleSendMessage(false, value);
         this.input.current.value = String('');
 
-        const endpoint = 'http://localhost:3001/api/v1/chat/ticket/send'
-        const payload = {
+        const endpoint = `${baseUrl}/chat/${pageId}/send`
+        const payload = (pageId === ticket) ? {
             userId: userId,
             sessionId: sessionId,
             ticketId: ticketId,
+            question: value
+        } : {
+            userId: userId,
+            sessionId: sessionId,
+            ctiId: ticketId,
             question: value
         }
         restHelper(endpoint, payload)
@@ -37,13 +43,13 @@ export default class ChatMessageEditor extends React.PureComponent {
     }
 
     render() {
-        const {userId, sessionId, ticketId} = this.props;
+        const {userId, sessionId, ticketId, pageId} = this.props;
         return (
             <div className = "message-editior">
                 {/* Message input field */}
                 <div className = "msg-editor" title = "Write your message here.">
                     {/* Message value */}
-                    <input ref = {this.input} type = "text" placeholder = "Send a message..." onKeyDown = {e => {if (e.key === "Enter") this.handleMessageEnter (userId, sessionId, ticketId)}}/>
+                    <input ref = {this.input} type = "text" placeholder = "Send a message..." onKeyDown = {e => {if (e.key === "Enter") this.handleMessageEnter (userId, sessionId, ticketId, pageId)}}/>
                 </div>
                 {/* Emoji icon container */}
                 <div className = "emoji-icon" title = "Add an emoji expression.">
