@@ -31,12 +31,12 @@ export default class ChatMessageEditor extends React.PureComponent {
         const payload = (pageId === ticket) ? {
             userId: userId,
             sessionId: sessionId,
-            ticketId: ticketId,
+            ticketId: "123",
             question: value
         } : {
             userId: userId,
             sessionId: sessionId,
-            ctiId: ticketId,
+            ctiId: "cti",
             question: value
         }
         restHelper(endpoint, payload)

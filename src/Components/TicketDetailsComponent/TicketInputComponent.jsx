@@ -30,7 +30,7 @@ export function TicketInputComponent(props) {
         const payload = (pageId === ticket) ? {
             userId: alias,
             sessionId: sessionId,
-            ticketId: identifier
+            ticketId: "123"
         } : {
             ctiId: "cti"
         }
