@@ -1,27 +1,6 @@
-/*
-* @organization: Console Art Cybernetic
-* @project: Tiktok Chat Simulation
-* @platform: PC (DESKTOP)
-* @created: 2022-09-18
-* @updated: 2022-09-18
-* @framework: React
-* @author: Obrymec
-* @version: 0.0.3
-*/
-
-/*
-* @description: Contains some multitudes of methodes to manages dates and times.
-* @type: DateTime
-*/
 export default class DateTime {
-    /*
-    * @description: Returns the current datetime system.
-    * @return: String
-    */
     static get_datetime = () => {
-        // Gets the current date time system.
         let datetime = new Date (), parts = [String (''), datetime.getDate (), datetime.getFullYear (), datetime.getHours (), datetime.getMinutes ()];
-        // Determinates the real date month.
 		switch (datetime.getMonth () + 1) {
             // January.
             case 1:
