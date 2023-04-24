@@ -16,10 +16,10 @@ function App() {
     }
 
     let [alias, setAlias] = useState("");
-    let [ticketId, setTicketId] = useState("");
+    let [identifier, setIdentifier] = useState("");
     let [ticketSummaryMessage, setTicketSummaryMessage] = useState({});
     let [sessionId, setSessionId] = useState("")
-    let [cti, setCti] = useState("");
+    // let [cti, setCti] = useState("");
     let [ctiSummaryMessage, setCtiSummaryMessage] = useState("");
     let [pageId, setPageId] = useState(ticket)
     let [chats, setChats] = useState(
@@ -66,7 +66,7 @@ function App() {
             }
             <div className="incident-summariser-header">
             <span>
-                INCIDENT INSIGHT <FontAwesomeIcon icon={faBug} />!
+                Incident Insight <FontAwesomeIcon icon={faBug} />!
             </span>
         </div>
         <div className="incident-summariser-required-component">
@@ -74,12 +74,10 @@ function App() {
                 <TicketDetailComponent
                     alias={alias}
                     sessionId={sessionId}
-                    ticketId={ticketId}
-                    setTicketId={setTicketId}
+                    identifier={identifier}
+                    setIdentifier={setIdentifier}
                     ticketSummaryMessage={ticketSummaryMessage}
                     setTicketSummaryMessage={setTicketSummaryMessage}
-                    cti={cti}
-                    setCti={setCti}
                     ctiSummaryMessage={ctiSummaryMessage}
                     setCtiSummaryMessage={setCtiSummaryMessage}
                     pageId={pageId}
@@ -91,9 +89,8 @@ function App() {
                 <UserChatComponent
                     alias={alias}
                     sessionId={sessionId}
-                    ticketId={ticketId}
+                    identifier={identifier}
                     pageId={pageId}
-                    cti={cti}
                     chats={chats}
                     setChats={setChats}
                     activeIndex={activeIndex}
