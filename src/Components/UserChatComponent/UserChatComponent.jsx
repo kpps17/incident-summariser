@@ -16,30 +16,31 @@ export default class UserChatComponent extends React.PureComponent {
     constructor (props) {
         super (props);
         this.chat_context = React.createRef ();
+        this.state = {
+            messageLoading:false
+        }
     }
+    setMessageLoading = (value)=>{
+        this.setState({
+            messageLoading: value
+        })
+    };
 
     sendMessage = (datetime, is_contact, message) => {
         let chats = lodash.cloneDeep (this.props.chats), today = (datetime.split (',')[0] + ", " + new Date ().getFullYear ());
-        // Gets chat datetime index.
         let index = chats[this.props.activeIndex].data.findLastIndex (item => {
-            // Returns the imposed constraint.
             return ((item.datetime.split (',')[0] + ", " + new Date ().getFullYear ()) === today);
         });
-        // The given datetime is it defined ?
         if (index > -1) chats[this.props.activeIndex].data[index].messages.push ({is_contact: is_contact, text: message});
-        // Adds the current message with the given datetime for today.
         else chats[this.props.activeIndex].data.push ({datetime: DateTime.get_datetime (), messages: [{is_contact: is_contact, text: message}]});
-        // Updates the global state.
-        // this.setState ({chats: chats});
         this.props.setChats(chats)
-        // Moves the scrollbar at the full bottom.
         setTimeout (() => this.chat_context.current.scroll_to_bottom (), 20);
     }
 
     render = () => <div className = "chat-workspace">
-            <Chat chats = {this.props.chats[this.props.activeIndex].data} userProfil = {userProfile}
+            <Chat chats = {this.props.chats[this.props.activeIndex].data} userProfil = {userProfile} messageLoading = {this.state.messageLoading}
                          contactProfil = {this.props.chats[this.props.activeIndex].profil} ref = {this.chat_context}/>
-            <ChatMessageEditor sendMessage={this.sendMessage} userId={this.props.alias} ticketId={this.props.identifier}
+            <ChatMessageEditor setMessageLoading={this.setMessageLoading} sendMessage={this.sendMessage} userId={this.props.alias} ticketId={this.props.identifier}
                                sessionId={this.props.sessionId} pageId={this.props.pageId}/>
         </div>
 }
@@ -50,7 +51,6 @@ class Chat extends React.PureComponent {
         super (props);
         this.container = React.createRef ();
     }
-
     scroll_to_bottom = () => this.container.current.scrollTop = this.container.current.scrollHeight;
 
     componentDidMount = () => this.scroll_to_bottom ();
@@ -70,6 +70,12 @@ class Chat extends React.PureComponent {
                                profil = {((pos > 0 && !item.messages[(pos - 1)].is_contact) ? null : this.props.userProfil)}
                     />)
                 )}
+                {this.props.messageLoading&&<LeftChat text={"random"}
+                           top={15}
+                           profil={this.props.contactProfil}
+                           bottom={15}
+                           messageLoading = {this.props.messageLoading}
+                />}
             </div>
         </div>)}
     </div>;
