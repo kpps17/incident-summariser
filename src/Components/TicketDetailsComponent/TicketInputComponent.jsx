@@ -55,14 +55,14 @@ export function TicketInputComponent(props) {
                         </Select>
                         <TextField id="outlined-basic" label={`enter ${pageId}`} variant="outlined"
                                    value = {identifier}
-                                   onChange={e => setIdentifier(e.target.value)} size="small" style={{width: "15vw"}}
+                                   onChange={e => setIdentifier(e.target.value)} size="large" style={{width: "15vw"}}
                         />
                     </div>
+                    {/*< div className="ticket-input-container-button">*/}
+                        <Button variant="outlined" disabled={handleEnableDisableButton(identifier)}
+                                onClick={handleIdInput} size="large">Find</Button>
+                    {/*</div>*/}
                 </FormControl>
-            </div>
-            <div className="ticket-input-container-button">
-                <Button variant="outlined" disabled={handleEnableDisableButton(identifier)}
-                        onClick={handleIdInput}>Find</Button>
             </div>
         </div>
     )
