@@ -7,8 +7,6 @@ import lodash from "lodash";
 import DateTime from "./datetime";
 import ChatMessageEditor from "./ChatMessageEditor";
 import userProfile from '../../Assets/userAvatar.jpg'
-import chatBot from '../../Assets/amazonChatBot.jpg'
-import {ticket} from "../../Assets/endpoints";
 
 
 
