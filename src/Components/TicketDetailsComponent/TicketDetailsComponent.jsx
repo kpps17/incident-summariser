@@ -52,7 +52,7 @@ export function TicketDetailComponent(props) {
 
     return (
         <>
-            {(<div>
+            {(<div className="details-main-component" >
                 <TicketInputComponent
                     identifier={identifier}
                     setIdentifier={setIdentifier}

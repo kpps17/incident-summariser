@@ -64,7 +64,7 @@
     gap: 14px;
 }
 .incident-summariser-ticket-summary-component {
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
 }
@@ -83,7 +83,8 @@
 
 .incident-summariser-ticket-summary-component {
     background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: block;
+    /*flex-direction: column;*/
+    /*align-items: center;*/
+    padding: 20px;
 }

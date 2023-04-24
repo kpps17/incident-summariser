@@ -5,7 +5,7 @@ export function CTIPageCardComponent(props) {
     let {ticketInfo} = props;
 
     return (
-        <Card sx={{ minWidth: 30 }} variant="outlined">
+        <Card variant="outlined">
             <CardContent>
                 <Typography sx={{ mb: 0.5 }} color="text.primary">
                     {`Title: ${ticketInfo.Title}`}

@@ -5,10 +5,10 @@ export function CTISummaryCardComponent(props) {
     let {ActiveTicket, ResolvedTicket, cti} = props;
 
     return (
-        <Card sx={{ minWidth: 30 }} variant="outlined">
+        <Card variant="outlined">
             <CardContent>
                 <Typography sx={{ mb: 0.3 }} color="text.primary">
-                    {`CTI: ${cti}`}
+                    {`CTI: Seller Tickets`}
                 </Typography>
                 <Typography sx={{ mb: 0.3 }} color="text.primary">
                     {`Active Tickets: ${ActiveTicket}`}

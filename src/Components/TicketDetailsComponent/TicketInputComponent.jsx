@@ -32,7 +32,7 @@ export function TicketInputComponent(props) {
             sessionId: sessionId,
             ticketId: identifier
         } : {
-            ctiId: identifier
+            ctiId: "cti"
         }
 
         const endpoint = `${baseUrl}/chat/${pageId}/summary`
