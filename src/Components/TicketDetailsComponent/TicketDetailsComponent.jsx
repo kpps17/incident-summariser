@@ -49,7 +49,7 @@ export function TicketDetailComponent(props) {
                 <TicketInputComponent
                     identifier={identifier}
                     setIdentifier={setIdentifier}
-                    setTicketSummaryMessage={setTicketSummaryMessage}
+                    setTicketSummaryMessage={pageId === ticket ? setTicketSummaryMessage : setCtiSummaryMessage}
                     alias={alias}
                     sessionId={sessionId}
                     handleFileTwoClick={handleShowAdditionalFile}
@@ -84,6 +84,55 @@ export function TicketDetailComponent(props) {
             {/*            ctiSummaryMessage={ctiSummaryMessage}*/}
             {/*        />)}*/}
             {/*    </>*/}
+            {/*)}*/}
+
+            {/*<FormControl style={{marginTop: 100, marginLeft: 100}}>*/}
+            {/*    <Select value={selected} onChange={selectionChangeHandler}>*/}
+            {/*        <MenuItem value={1}>Ticket</MenuItem>*/}
+            {/*        <MenuItem value={2}>CTI</MenuItem>*/}
+            {/*    </Select>*/}
+            {/*</FormControl>*/}
+
+            {/*{isConversationRelatedToTicket(pageId) && (*/}
+            {/*    <div className="">*/}
+            {/*        <div className="ticket-detail-component-header">*/}
+            {/*            <h1> Enter the Ticket ID</h1>*/}
+            {/*        </div>*/}
+            {/*        <div className="input-and-card-container">*/}
+            {/*            <TicketInputComponent*/}
+            {/*                ticketId={ticketId}*/}
+            {/*                setTicketId={setTicketId}*/}
+            {/*                setTicketSummaryMessage={setTicketSummaryMessage}*/}
+            {/*                alias={alias}*/}
+            {/*                sessionId={sessionId}*/}
+            {/*                handleFileTwoClick={handleShowAdditionalFile}*/}
+            {/*                pageId={pageId}*/}
+            {/*            />*/}
+            {/*            {showAdditionalFile && <TicketSummaryComponent*/}
+            {/*                ticketSummaryMessage={ticketSummaryMessage}*/}
+            {/*            />}*/}
+            {/*        </div>*/}
+            {/*    </div>)}*/}
+            {/*{!isConversationRelatedToTicket(pageId) && (*/}
+            {/*    <div>*/}
+            {/*        <div className="ticket-detail-component-header">*/}
+            {/*            <h1>Enter CTI</h1>*/}
+            {/*        </div>*/}
+            {/*        <div className="input-and-card-container">*/}
+            {/*            <TicketInputComponent*/}
+            {/*                ticketId={cti}*/}
+            {/*                setTicketId={setCti}*/}
+            {/*                setTicketSummaryMessage={setCtiSummaryMessage}*/}
+            {/*                alias={alias}*/}
+            {/*                sessionId={sessionId}*/}
+            {/*                handleFileTwoClick={handleShowAdditionalFile}*/}
+            {/*                pageId={pageId}*/}
+            {/*            />*/}
+            {/*            {showAdditionalFile && (<CTISummaryComponent*/}
+            {/*                ctiSummaryMessage={ctiSummaryMessage}*/}
+            {/*            />)}*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
             {/*)}*/}
         </>
 
