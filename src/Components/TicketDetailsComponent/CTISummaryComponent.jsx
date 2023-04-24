@@ -7,7 +7,11 @@ export const CTISummaryComponent = (props) => {
     console.log(ctiSummaryMessage)
     return (
         <div className="ticket-conatainer">
-            <CTISummaryCardComponent ActiveTicket={ctiSummaryMessage.ActiveTicket} ResolvedTicket={ctiSummaryMessage.ResolvedTicket}/>
+            <CTISummaryCardComponent
+                ActiveTicket={ctiSummaryMessage.ActiveTicket}
+                ResolvedTicket={ctiSummaryMessage.ResolvedTicket}
+                cti={ctiSummaryMessage.Title}
+            />
             <div className="ticket-card-component">
                 {
                     ctiSummaryMessage.ticketList?.map(ticketInfo => {
