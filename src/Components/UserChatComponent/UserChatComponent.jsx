@@ -40,7 +40,7 @@ export default class UserChatComponent extends React.PureComponent {
     render = () => <div className = "chat-workspace">
             <Chat chats = {this.props.chats[this.props.activeIndex].data} userProfil = {userProfile} messageLoading = {this.state.messageLoading}
                          contactProfil = {this.props.chats[this.props.activeIndex].profil} ref = {this.chat_context}/>
-            <ChatMessageEditor setMessageLoading={this.setMessageLoading} sendMessage={this.sendMessage} userId={this.props.alias} ticketId={(this.props.pageId === ticket) ? this.props.ticketId : this.props.cti}
+            <ChatMessageEditor setMessageLoading={this.setMessageLoading} sendMessage={this.sendMessage} userId={this.props.alias} ticketId={this.props.identifier}
                                sessionId={this.props.sessionId} pageId={this.props.pageId}/>
         </div>
 }

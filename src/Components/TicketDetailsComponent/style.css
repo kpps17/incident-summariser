@@ -12,3 +12,12 @@
     padding-bottom: 12vw;
 
 }
+
+.ticket-card-component {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 29vw;
+    height: 54vh;
+    margin-top: 5px;
+}

@@ -1,37 +1,27 @@
+import {CTIPageCardComponent} from "./CTIPageCardComponent";
+import {CTISummaryCardComponent} from "./CTISummaryCardComponent";
+
 export const CTISummaryComponent = (props) => {
     let {ctiSummaryMessage} = props;
-
+    console.log("i am in CTISummaryComponent")
+    console.log(ctiSummaryMessage)
     return (
-        <>
-            <span>{ctiSummaryMessage.Title}</span>
-            <span>{ctiSummaryMessage.ResolvedTicket}</span>
-            <span>{ctiSummaryMessage.ActiveTicket}</span>
-            <span>{ctiSummaryMessage.Description}</span>
-            {
-                ctiSummaryMessage.ticketList?.map(ticketInfo => {
-                    console.log(ticketInfo)
-                    return (
-                        <>
-                            <span>
-                            {ticketInfo.Description}
-                            </span>
-                                <span>
-                                {ticketInfo.Severity}
-                            </span>
-                                <span>
-                                {ticketInfo.Status}
-                            </span>
-                                <span>
-                                {ticketInfo.TicketId}
-                            </span>
-                            <span>
-                                    {ticketInfo.Title}
-                                </span>
-                        </>
-                    )
-                })
-            }
-        </>
+        <div className="ticket-conatainer">
+            <CTISummaryCardComponent
+                ActiveTicket={ctiSummaryMessage.ActiveTicket}
+                ResolvedTicket={ctiSummaryMessage.ResolvedTicket}
+                cti={ctiSummaryMessage.Title}
+            />
+            <div className="ticket-card-component">
+                {
+                    ctiSummaryMessage.ticketList?.map(ticketInfo => {
+                        return (
+                            <CTIPageCardComponent ticketInfo={ticketInfo} key={ticketInfo.TicketId}/>
+                        )
+                    })
+                }
+            </div>
+        </div>
     )
 
 }
