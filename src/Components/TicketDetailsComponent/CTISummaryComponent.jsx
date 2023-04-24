@@ -8,7 +8,7 @@ export const CTISummaryComponent = (props) => {
             <span>{ctiSummaryMessage.ActiveTicket}</span>
             <span>{ctiSummaryMessage.Description}</span>
             {
-                ctiSummaryMessage.ticketList.map(ticketInfo => {
+                ctiSummaryMessage.ticketList?.map(ticketInfo => {
                     console.log(ticketInfo)
                     return (
                         <>
