@@ -19,9 +19,9 @@ function App() {
     let [identifier, setIdentifier] = useState("");
     let [ticketSummaryMessage, setTicketSummaryMessage] = useState({});
     let [sessionId, setSessionId] = useState("")
-    // let [cti, setCti] = useState("");
     let [ctiSummaryMessage, setCtiSummaryMessage] = useState("");
     let [pageId, setPageId] = useState(ticket)
+    let [userButtonClick, setUserButtonClick] = useState(false);
     let [chats, setChats] = useState(
         [
             {
@@ -83,6 +83,8 @@ function App() {
                     pageId={pageId}
                     setPageId={setPageId}
                     setChats={setChats}
+                    userButtonClick = {userButtonClick}
+                    setUserButtonClick={setUserButtonClick}
                 />
             </div>
             <div className="incident-summariser-ticket-user-chat-component">

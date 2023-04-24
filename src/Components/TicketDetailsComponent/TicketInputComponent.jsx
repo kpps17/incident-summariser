@@ -11,7 +11,9 @@ export function TicketInputComponent(props) {
         sessionId,
         pageId,
         selectionChangeHandler,
-        selected
+        selected,
+        userButtonClick,
+        setUserButtonClick
     } = props;
     const handleClick = () => {
         props.handleFileTwoClick();
@@ -23,6 +25,7 @@ export function TicketInputComponent(props) {
     }
 
     const handleIdInput = () => {
+        setUserButtonClick(true);
         handleClick();
         const payload = (pageId === ticket) ? {
             userId: alias,
@@ -40,10 +43,6 @@ export function TicketInputComponent(props) {
                 setTicketSummaryMessage(res.data.response);
             });
     }
-    const isConversationRelatedToTicket = (str) => {
-        return str === ticket ? "CTI" : "Ticket-Id";
-    }
-
 
     return (
         <div className="ticket-input-container">
@@ -55,6 +54,7 @@ export function TicketInputComponent(props) {
                             <MenuItem value={2}>CTI</MenuItem>
                         </Select>
                         <TextField id="outlined-basic" label={`enter ${pageId}`} variant="outlined"
+                                   value = {identifier}
                                    onChange={e => setIdentifier(e.target.value)} size="small" style={{width: "15vw"}}
                         />
                     </div>
