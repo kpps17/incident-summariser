@@ -39,6 +39,7 @@
 
 .ticket-input-container-text-field {
     padding-bottom: 15px;
+    /*display: flex;*/
 }
 
 @media (max-width: 768px) {

@@ -21,3 +21,19 @@
     height: 54vh;
     margin-top: 5px;
 }
+
+.id-input-group {
+    /*display: flex;*/
+}
+
+/*.form-control {*/
+/*    display: contents;*/
+/*}*/
+
+.id-input-group-choice {
+    padding-right: 6px;
+}
+
+.ticket-input-container-button {
+    margin: 11px 0px 0px 0px;
+}

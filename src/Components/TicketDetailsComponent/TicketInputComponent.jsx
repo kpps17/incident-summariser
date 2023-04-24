@@ -45,25 +45,28 @@ export function TicketInputComponent(props) {
     }
 
     return (
-        <div className="ticket-input-container">
-            <div className="ticket-input-container-text-field">
-                <FormControl style={{marginTop: 100, marginLeft: 100}}>
-                    <div id="id-input-group">
+        <div className="ticket-input-container-text-field">
+            <FormControl style={{marginTop: 100, marginLeft: 100, display: "contents"}} >
+                <div id="id-input-group" style={{display: "flex"}}>
+                    <div className="id-input-group-choice">
                         <Select value={selected} onChange={selectionChangeHandler}>
                             <MenuItem value={1}>Ticket</MenuItem>
                             <MenuItem value={2}>CTI</MenuItem>
                         </Select>
+                    </div>
+                    <div className="id-input-group-text-field">
                         <TextField id="outlined-basic" label={`enter ${pageId}`} variant="outlined"
                                    value = {identifier}
-                                   onChange={e => setIdentifier(e.target.value)} size="large" style={{width: "15vw"}}
+                                   onChange={e => setIdentifier(e.target.value)} size="medium" style={{width: "15vw"}}
                         />
                     </div>
-                    {/*< div className="ticket-input-container-button">*/}
-                        <Button variant="outlined" disabled={handleEnableDisableButton(identifier)}
-                                onClick={handleIdInput} size="large">Find</Button>
-                    {/*</div>*/}
-                </FormControl>
+                </div>
+            </FormControl>
+            <div className="ticket-input-container-button">
+                <Button variant="outlined" disabled={handleEnableDisableButton(identifier)} style={{width: "30px"}}
+                        onClick={handleIdInput} size="large">Find</Button>
             </div>
+
         </div>
     )
 }
