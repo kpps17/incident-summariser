@@ -55,7 +55,7 @@ export function TicketInputComponent(props) {
                         </Select>
                     </div>
                     <div className="id-input-group-text-field">
-                        <TextField id="outlined-basic" label={`enter ${pageId}`} variant="outlined"
+                        <TextField id="outlined-basic" label={`Enter ${pageId==='ticket'?"Ticket":"CTI"}`} variant="outlined"
                                    value = {identifier}
                                    onChange={e => setIdentifier(e.target.value)} size="medium" style={{width: "15vw"}}
                         />
