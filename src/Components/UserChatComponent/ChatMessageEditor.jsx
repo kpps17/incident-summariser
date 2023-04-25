@@ -42,7 +42,9 @@ export default class ChatMessageEditor extends React.PureComponent {
         restHelper(endpoint, payload)
             .then((res) => {
                 this.props.setMessageLoading(false)
-                this.handleSendMessage(true, res.data.response)
+                let response = res.data.response.replace(/\n/g,"<br />");
+                console.log(response);
+                this.handleSendMessage(true, response);
             })
     }
 

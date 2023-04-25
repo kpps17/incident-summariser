@@ -18,7 +18,7 @@ export default function LeftChat (props) {
         {props.messageLoading ?
             <Typing/> :
             <>
-                <div className = "chat-msg-data"><label id = "chat-text">{props.text}</label>&nbsp;&nbsp;
+                <div className = "chat-msg-data"><label id = "chat-text" dangerouslySetInnerHTML={{__html:props.text}}></label>&nbsp;&nbsp;
                     <FontAwesomeIcon icon={faThumbsUp} onClick={handleClick}/>&nbsp;&nbsp;<FontAwesomeIcon icon={faThumbsDown} onClick={handleClick}/>
                 </div>
                 <ToastContainer />
