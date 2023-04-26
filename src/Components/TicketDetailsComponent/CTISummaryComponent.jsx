@@ -3,8 +3,6 @@ import {CTISummaryCardComponent} from "./CTISummaryCardComponent";
 
 export const CTISummaryComponent = (props) => {
     let {ctiSummaryMessage} = props;
-    console.log("i am in CTISummaryComponent")
-    console.log(ctiSummaryMessage)
     return (
         <div className="ticket-conatainer">
             <CTISummaryCardComponent

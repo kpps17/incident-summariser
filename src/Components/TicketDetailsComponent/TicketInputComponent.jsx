@@ -51,11 +51,11 @@ export function TicketInputComponent(props) {
                     <div className="id-input-group-choice">
                         <Select value={selected} onChange={selectionChangeHandler}>
                             <MenuItem value={1}>Ticket</MenuItem>
-                            <MenuItem value={2}>CTI</MenuItem>
+                            <MenuItem value={2}>Resolver Group</MenuItem>
                         </Select>
                     </div>
                     <div className="id-input-group-text-field">
-                        <TextField id="outlined-basic" label={`Enter ${pageId==='ticket'?"Ticket":"CTI"}`} variant="outlined"
+                        <TextField id="outlined-basic" label={`Enter ${pageId==='ticket'?"Ticket":"Resolver Group"}`} variant="outlined"
                                    value = {identifier}
                                    onChange={e => setIdentifier(e.target.value)} size="medium" style={{width: "15vw"}}
                         />
